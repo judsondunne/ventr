@@ -11,11 +11,14 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
+    
     "ios": {
-      "supportsTablet": true
+      "permissions": ["CAMERA"], 
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to take photos." 
+      }
     },
     "android": {
       "adaptiveIcon": {
