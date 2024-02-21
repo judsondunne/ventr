@@ -5,14 +5,18 @@ import { createStackNavigator } from '@react-navigation/stack';
 // Import your screens
 import ExploreScreen from '../screens/Explore/explore';
 import ExploreSearchScreen from '../screens/Explore-Search/explore-search'; // Adjust the path as necessary
+
 import ChallengesScreen from '../screens/Challenges/challenges';
 import CreateScreen from '../screens/Create/create';
 import FeedScreen from '../screens/Feed/feed';
 import ProfileScreen from '../screens/Profile/profile';
 import CustomTabBar from '../components/bottomNav/bottomNav'; // Adjust this path as necessary
+import PostDisplayScreen from '../screens/Post-Display/post-display';
+import MessagesScreen from '../screens/Messages/messages';
 
 // Create the stack navigators
 const ExploreStack = createStackNavigator();
+//const PostDisplayStack = createStackNavigator();
 const ChallengesStack = createStackNavigator();
 const CreateStack = createStackNavigator();
 const FeedStack = createStackNavigator();
@@ -25,6 +29,8 @@ function ExploreStackNavigator() {
       <ExploreStack.Screen name="Explore" component={ExploreScreen} options={{ headerShown: false }} />
       {/* Additional screens can be added to this stack */}
       <ExploreStack.Screen name="ExploreSearch" component={ExploreSearchScreen} options={{ headerShown: false }} />
+      
+      <ExploreStack.Screen name="PostDisplay" component={PostDisplayScreen} options={{ headerShown: false }} />
     </ExploreStack.Navigator>
   );
 }
@@ -37,6 +43,15 @@ function ChallengesStackNavigator() {
     </ChallengesStack.Navigator>
   );
 }
+
+// function PostDisplayStack() {
+//     return (
+//       <PostDisplayStack.Navigator>
+//         <PostDisplayStack.Screen name="PostDisplay" component={PostDisplayScreen} options={{ headerShown: false }} />
+//         {/* Additional screens can be added to this stack */}
+//       </PostDisplayStack.Navigator>
+//     );
+//   }
 
 function CreateStackNavigator() {
   return (
@@ -61,6 +76,7 @@ function ProfileStackNavigator() {
     <ProfileStack.Navigator>
       <ProfileStack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
       {/* Additional screens can be added to this stack */}
+      <ExploreStack.Screen name="Messages" component={MessagesScreen} options={{ headerShown: false }} />
     </ProfileStack.Navigator>
   );
 }

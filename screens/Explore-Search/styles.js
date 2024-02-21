@@ -10,42 +10,54 @@ const styles = StyleSheet.create({
     },
     map: {
         ...StyleSheet.absoluteFillObject,
+        
     },
+    
     searchContainer: {
         position: 'absolute',
-        top: 100,
+        top: 80, // Adjust this value to match the photo
         width: '90%', // Adjust the width as per the design requirement
         flexDirection: 'row', // Align items horizontally
-        justifyContent: 'center', // Center the items
+        justifyContent: 'space-between', // Space out the children evenly
         alignItems: 'center', // Align items vertically
-        backgroundColor: '#333', // This is the dark background color for the search container
-        borderRadius: 20, // Rounded corners for the search container
-        paddingHorizontal: 15, // Horizontal padding
+        //backgroundColor: 'rgba(51, 51, 51, 0.8)', // Adjust the transparency as needed
+        borderRadius: 15, // Adjust this to match the roundness in the photo
+        paddingHorizontal: 10, // Adjust horizontal padding
+        paddingVertical: 10, // Adjust vertical padding if necessary
+         // Grey color
     },
     searchInput: {
         flex: 1, // Take up all available space except for the buttons
-        height: 50, // Increased height for the input
-        fontSize: 16, // Font size for the input text
+        height: 40, // Adjust height to match the photo
+        fontSize: 18, // Adjust font size to match the photo
         color: '#FFF', // White text color
-        marginRight: 10, // Margin between the input and the search icon
+        //marginLeft: 10, // Margin to the left of the text
+        fontWeight: 'normal', // Adjust font weight if necessary
+        borderBottomWidth: 1.8, // Add a border at the bottom
+        borderBottomColor: 'rgba(255, 255, 255, 0.3)',
     },
     iconButton: {
-        justifyContent: 'center', // Center the icon vertically and horizontally
-        alignItems: 'center',
-        padding: 8, // Padding around the icon to increase the touchable area
+        // ... other styles remain unchanged
+        padding: 10,
+        //color: '156,142,153',
+         // Adjust padding around the icon
     },
     searchIcon: {
-        paddingRight: 30,
-        width: 24, // Example size for the search icon
-        height: 24, // Example size for the search icon
-        tintColor: '#FFF', // White tint for the icon
+        
+        // ... other styles remain unchanged
+        width: 30, // Adjust width to match the photo
+        height: 30, // Adjust height to match the photo
+        //color: '156,142,153', // White tint for the icon
     },
     closeIcon: {
-        width: 13, // Example size for the close icon
-        height: 13,
-         // Example size for the close icon
-         // White tint for the icon
+        // ... other styles remain unchanged
+        //color: '156,142,153', // White tint for the icon
     },
+    searchResults: {
+        marginTop: 150,
+      }
+
+
 });
 
 export default styles;

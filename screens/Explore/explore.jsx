@@ -1,11 +1,12 @@
 import React from 'react';
 import { View, TouchableOpacity, Image } from 'react-native';
 
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import styles from './styles'; // Import your styles
 import { useNavigation } from '@react-navigation/native';
+import { darkMapStyle } from './darkModeStyles';
 
-
+    
 const ExploreScreen = () => {
     const navigation = useNavigation(); // Initialize navigation
     
@@ -14,28 +15,32 @@ const ExploreScreen = () => {
         navigation.navigate('ExploreSearch'); // Navigate to ExploreSearch screen
     };
 
+    
+
     return (
         <View style={styles.container}>
             <MapView
-                style={styles.map}
-                initialRegion={{
+            style={styles.map}
+            initialRegion={{
+                latitude: 38.89511,
+                longitude: -77.03637,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421,
+            }}
+            provider={PROVIDER_GOOGLE}
+            customMapStyle={darkMapStyle} // Apply custom map style
+        >
+            <Marker
+                coordinate={{
                     latitude: 38.89511,
                     longitude: -77.03637,
-                    latitudeDelta: 0.0922,
-                    longitudeDelta: 0.0421,
                 }}
-                 // Use dark mode map style
-            >
-                <Marker
-                    coordinate={{
-                        latitude: 38.89511,
-                        longitude: -77.03637,
-                    }}
-                    title={"title"}
-                    description={"description"}
-                />
-                {/* Add more markers as needed */}
-            </MapView>
+                title={"title"}
+                description={"description"}
+            />
+            {/* Add more markers as needed */}
+        </MapView>
+
             <View style={styles.circle} />
             <View style={styles.smallCircle} />
             <TouchableOpacity style={styles.searchIcon} onPress={handleSearchPress}>

@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     },
     location: {
         color: '#fff',
+        marginLeft: 20,
     },
     timestampContainer: {
         position: 'absolute',
@@ -62,6 +63,32 @@ const styles = StyleSheet.create({
     shareButton: {
         // Additional styling for share button if needed
     },
+    buttomInfo: {
+        display: 'flex',
+
+    },
+    userInfoContainer: {
+        position: 'absolute',
+        bottom: '20%', // Adjust as needed
+        left: '5%',
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    profilePic: {
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+        marginRight: 10,
+    },
+    userInfoTextContainer: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+    },
+    topInfo: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    
     // Add other styles as needed
 });
 

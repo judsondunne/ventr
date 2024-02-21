@@ -6,6 +6,9 @@ const { width, height } = Dimensions.get('window');
 const buttonSize = width * 0.12; // Example size multiplier
 const borderRadius = buttonSize / 2; // To make it a perfect circle
 
+
+
+
 const styles = StyleSheet.create({
     container: {
         ...StyleSheet.absoluteFillObject,
@@ -206,6 +209,8 @@ circleButton1: {
     alignItems: 'center',
     backgroundColor: '#14A61B',
   },
+
+  
 
 });
 
