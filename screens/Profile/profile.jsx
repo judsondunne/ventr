@@ -27,14 +27,15 @@ const Stat = ({ number, label }) => (
     </View>
 );
 
-// const navigation = useNavigation(); // Initialize navigation
-    
 
-//     const handleMessagePress = () => {
-//         navigation.navigate('Messages'); // Navigate to ExploreSearch screen
-//     };
 
 const ProfileScreen = () => {
+    const navigation = useNavigation(); // Initialize navigation
+    
+
+    const handleMessagePress = () => {
+        navigation.navigate('Messages'); // Navigate to ExploreSearch screen
+    };
     return (
         <ScrollView style={styles.container}>
             <View style={styles.headerContainer}>
@@ -42,8 +43,8 @@ const ProfileScreen = () => {
                     source={{ uri: '/Users/judsondunne/ventr/ventr/assets/profiles/profile1.png' }} // Replace with your profile picture URL
                     style={styles.profilePic}
                 />
-                <TouchableOpacity style={styles.shareButton}>
-                        <Icon name="share" size={20} color="#FFFFFF" />
+                <TouchableOpacity style={styles.messageButton} onPress={handleMessagePress}>
+                        <Icon name="bell" size={30} color="#CEA46F" />
                     </TouchableOpacity>
                 <View style={styles.badgeContainer}>
                     <Text style={styles.badgeText}>Badge LV3</Text>

@@ -1,12 +1,24 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './styles';
 
 const BottomNav = ({ state, descriptors, navigation }) => {
+  const currentRoute = state.routes[state.index];
+
+  // Function to check if the current route or any of its ancestors include "PostDisplay"
+  const isPostDisplayRoute = (route) => {
+    if (route.name === "PostDisplay" || route.name === "Create") {
+      return true;
+    }
+    if (route.state) {
+      return route.state.routes.some((childRoute) => isPostDisplayRoute(childRoute));
+    }
+    return false;
+  };
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, isPostDisplayRoute(currentRoute) ? { backgroundColor: 'red', height: 0 } : null]}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const isFocused = state.index === index;

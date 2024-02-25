@@ -1,83 +1,70 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import CustomTabBar from '../components/bottomNav/bottomNav'; // Adjust this path as necessary
 
 // Import your screens
-import ExploreScreen from '../screens/Explore/explore';
-import ExploreSearchScreen from '../screens/Explore-Search/explore-search'; // Adjust the path as necessary
+import ExploreScreen from '/Users/judsondunne/ventr/ventr/screens/Explore/explore.jsx';
+import ExploreSearchScreen from '/Users/judsondunne/ventr/ventr/screens/Explore-Search/explore-search.jsx'; // Adjust the path as necessary
+import ChallengesScreen from '/Users/judsondunne/ventr/ventr/screens/Challenges/challenges.jsx';
+import CreateScreen from '/Users/judsondunne/ventr/ventr/screens/Create/create.jsx';
+import FeedScreen from '/Users/judsondunne/ventr/ventr/screens/Feed/feed.jsx';
+import ProfileScreen from '/Users/judsondunne/ventr/ventr/screens/Profile/profile.jsx';
+import PostDisplayScreen from '/Users/judsondunne/ventr/ventr/screens/Post-Display/post-display.jsx';
+import MessagesScreen from '/Users/judsondunne/ventr/ventr/screens/Messages/messages.jsx';
+import EditScreen from '../screens/Edit/edit';
+import SetLocationScreen from '../screens/SetLocation/setLocation';
+import UploadScreen from '../screens/Upload/upload';
 
-import ChallengesScreen from '../screens/Challenges/challenges';
-import CreateScreen from '../screens/Create/create';
-import FeedScreen from '../screens/Feed/feed';
-import ProfileScreen from '../screens/Profile/profile';
-import CustomTabBar from '../components/bottomNav/bottomNav'; // Adjust this path as necessary
-import PostDisplayScreen from '../screens/Post-Display/post-display';
-import MessagesScreen from '../screens/Messages/messages';
 
 // Create the stack navigators
-const ExploreStack = createStackNavigator();
-//const PostDisplayStack = createStackNavigator();
-const ChallengesStack = createStackNavigator();
-const CreateStack = createStackNavigator();
-const FeedStack = createStackNavigator();
-const ProfileStack = createStackNavigator();
+const Stack = createStackNavigator();
 
 // Each stack navigator function
 function ExploreStackNavigator() {
   return (
-    <ExploreStack.Navigator>
-      <ExploreStack.Screen name="Explore" component={ExploreScreen} options={{ headerShown: false }} />
-      {/* Additional screens can be added to this stack */}
-      <ExploreStack.Screen name="ExploreSearch" component={ExploreSearchScreen} options={{ headerShown: false }} />
-      
-      <ExploreStack.Screen name="PostDisplay" component={PostDisplayScreen} options={{ headerShown: false }} />
-    </ExploreStack.Navigator>
+    <Stack.Navigator>
+      <Stack.Screen name="Explore" component={ExploreScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="ExploreSearch" component={ExploreSearchScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="PostDisplay" component={PostDisplayScreen} options={{ headerShown: false }} />
+    </Stack.Navigator>
   );
 }
 
 function ChallengesStackNavigator() {
   return (
-    <ChallengesStack.Navigator>
-      <ChallengesStack.Screen name="Challenges" component={ChallengesScreen} options={{ headerShown: false }} />
-      {/* Additional screens can be added to this stack */}
-    </ChallengesStack.Navigator>
+    <Stack.Navigator>
+      <Stack.Screen name="Challenges" component={ChallengesScreen} options={{ headerShown: false }} />
+    </Stack.Navigator>
   );
 }
 
-// function PostDisplayStack() {
-//     return (
-//       <PostDisplayStack.Navigator>
-//         <PostDisplayStack.Screen name="PostDisplay" component={PostDisplayScreen} options={{ headerShown: false }} />
-//         {/* Additional screens can be added to this stack */}
-//       </PostDisplayStack.Navigator>
-//     );
-//   }
-
-function CreateStackNavigator() {
+// New Post Creation Stack Navigator
+function PostCreationStackNavigator() {
   return (
-    <CreateStack.Navigator>
-      <CreateStack.Screen name="Create" component={CreateScreen} options={{ headerShown: false }} />
-      {/* Additional screens can be added to this stack */}
-    </CreateStack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="TakePhoto" component={CreateScreen} />
+      <Stack.Screen name="Edit" component={EditScreen} />
+      <Stack.Screen name="SetLocation" component={SetLocationScreen} />
+      <Stack.Screen name="Upload" component={UploadScreen} />
+    </Stack.Navigator>
   );
 }
 
 function FeedStackNavigator() {
   return (
-    <FeedStack.Navigator>
-      <FeedStack.Screen name="Feed" component={FeedScreen} options={{ headerShown: false }} />
-      {/* Additional screens can be added to this stack */}
-    </FeedStack.Navigator>
+    <Stack.Navigator>
+      <Stack.Screen name="Feed" component={FeedScreen} options={{ headerShown: false }} />
+    </Stack.Navigator>
   );
 }
 
 function ProfileStackNavigator() {
   return (
-    <ProfileStack.Navigator>
-      <ProfileStack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
-      {/* Additional screens can be added to this stack */}
-      <ExploreStack.Screen name="Messages" component={MessagesScreen} options={{ headerShown: false }} />
-    </ProfileStack.Navigator>
+    <Stack.Navigator>
+      <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Messages" component={MessagesScreen} options={{ headerShown: false }} />
+    </Stack.Navigator>
   );
 }
 
@@ -88,11 +75,10 @@ const BottomTabNavigator = () => {
   return (
     <Tab.Navigator tabBar={props => <CustomTabBar {...props} />}>
       <Tab.Screen name="Feed" component={FeedStackNavigator} options={{ headerShown: false }} />
-      <Tab.Screen name="Create" component={CreateStackNavigator} options={{ headerShown: false }} />
+      <Tab.Screen name="Create" component={PostCreationStackNavigator} options={{ headerShown: false }} />
       <Tab.Screen name="Explore" component={ExploreStackNavigator} options={{ headerShown: false }} />
       <Tab.Screen name="Challenges" component={ChallengesStackNavigator} options={{ headerShown: false }} />
       <Tab.Screen name="Profile" component={ProfileStackNavigator} options={{ headerShown: false }} />
-      {/* ...other tabs */}
     </Tab.Navigator>
   );
 };

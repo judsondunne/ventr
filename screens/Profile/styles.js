@@ -42,7 +42,7 @@ badgeContainer: {
   },
   
     userName: {
-        paddingTop: 30,
+        paddingTop: 10,
         color: '#CEA46F',
         
         fontSize: 24,
@@ -99,6 +99,10 @@ badgeContainer: {
         height: '100%',
         backgroundColor: '#CEA46F', // Gold color
         borderRadius: 10, // Rounded corners
+    },
+    messageButton: {
+        left: 160,
+        top: -60,
     },
 
     progressText: {
